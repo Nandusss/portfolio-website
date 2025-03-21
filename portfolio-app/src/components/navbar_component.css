@@ -1,0 +1,98 @@
+:root {
+  /* Light theme variables */
+  --nav-bg-light: #ffffff;
+  --nav-text-light: #333333;
+  --nav-hover-light: #f0f0f0;
+  --nav-active-light: #0984e3;
+  --nav-border-light: rgba(0, 0, 0, 0.1);
+
+  /* Dark theme variables */
+  --nav-bg-dark: #1a1a1a;
+  --nav-text-dark: #ffffff;
+  --nav-hover-dark: #2d2d2d;
+  --nav-active-dark: #74b9ff;
+  --nav-border-dark: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.navbar {
+  width: 100vw;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  margin: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+}
+
+/* Light theme styles (default) */
+[data-theme="light"] .navbar {
+  background-color: var(--nav-bg-light);
+  border-bottom: 1px solid var(--nav-border-light);
+}
+
+[data-theme="light"] .nav-links li a {
+  color: var(--nav-text-light);
+}
+
+[data-theme="light"] .nav-links li a:hover {
+  color: var(--nav-active-light);
+}
+
+/* Dark theme styles */
+[data-theme="dark"] .navbar {
+  background-color: var(--nav-bg-dark);
+  border-bottom: 1px solid var(--nav-border-dark);
+}
+
+[data-theme="dark"] .nav-links li a {
+  color: var(--nav-text-dark);
+}
+
+[data-theme="dark"] .nav-links li a:hover {
+  color: var(--nav-active-dark);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  justify-content: center;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+/* Remove unused styles */
+.navbar a.active {
+  color: var(--nav-active-light);
+}
+
+[data-theme="dark"] .navbar a.active {
+  color: var(--nav-active-dark);
+}
+
+/* Add glass effect */
+.navbar {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+[data-theme="dark"] .navbar {
+  background-color: rgba(26, 26, 26, 0.8);
+}
