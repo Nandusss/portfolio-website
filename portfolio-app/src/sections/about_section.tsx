@@ -19,7 +19,7 @@ interface AboutContent {
 }
 
 const aboutContent: AboutContent = {
-  name: "Your Name",
+  name: "Nandagopan Dilip",
   title: "Full Stack Developer",
   description:
     "Passionate about creating web applications and solving complex problems",

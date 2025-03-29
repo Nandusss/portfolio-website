@@ -1,21 +1,3 @@
-:root {
-  /* Light theme variables */
-  --bg-light: #ffffff;
-  --text-light: #2d3436;
-  --accent-light: #0984e3;
-  --card-bg-light: #f5f6fa;
-  --hover-light: #74b9ff;
-  --shadow-light: rgba(0, 0, 0, 0.1);
-
-  /* Dark theme variables */
-  --bg-dark: #2d3436;
-  --text-dark: #dfe6e9;
-  --accent-dark: #74b9ff;
-  --card-bg-dark: #353b48;
-  --hover-dark: #0984e3;
-  --shadow-dark: rgba(0, 0, 0, 0.3);
-}
-
 .home-section {
   min-height: 100vh;
   display: flex;
@@ -80,25 +62,46 @@
 }
 
 /* Rest of the styles */
+.content-wrapper {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
 .home-content {
   max-width: 1200px;
-  width: 100%;
+  width: 70%;
   text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+}
+
+.skills-container {
+  width: 40%;
+  height: 500px;
+  position: relative;
+  border-left: 1px solid rgba(128, 128, 128, 0.2);
 }
 
 .intro {
   margin: 3rem 0;
+  padding: 1rem 0; /* Added padding for better spacing */
 }
 
 .intro h1 {
   font-size: 3.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem; /* Increased from 1rem */
+  line-height: 1.4; /* Added line height */
+  padding-bottom: 0.2em; /* Added padding at bottom */
   animation: gradient 5s ease infinite;
 }
 
 .intro h3 {
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
+  line-height: 1.3; /* Added line height */
 }
 
 .intro p {
@@ -140,14 +143,179 @@
 }
 
 .skill-item img {
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
 }
 
 .skill-item span {
   font-size: 1.1rem;
   font-weight: 500;
+}
+
+/* Add new skill bubble styles */
+.skill-bubbles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.skill-bubble {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+/* Light theme skill bubbles */
+[data-theme="light"] .skill-bubble {
+  background: rgba(236, 240, 243, 0.7);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1),
+    inset 0 2px 5px rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="light"] .skill-bubble:hover {
+  background: rgba(236, 240, 243, 0.9);
+  transform: scale(1.1);
+}
+
+/* Dark theme skill bubbles */
+[data-theme="dark"] .skill-bubble {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3),
+    inset 0 2px 5px rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .skill-bubble:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.1);
+}
+
+.skill-bubble img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+/* Position each bubble in different corners initially */
+.skill-bubble:nth-child(1) {
+  top: 20%;
+  left: 20%;
+  animation: float1 8s infinite ease-in-out;
+}
+
+.skill-bubble:nth-child(2) {
+  top: 60%;
+  left: 60%;
+  animation: float2 10s infinite ease-in-out;
+}
+
+.skill-bubble:nth-child(3) {
+  top: 30%;
+  left: 60%;
+  animation: float3 9s infinite ease-in-out;
+}
+
+.skill-bubble:nth-child(4) {
+  top: 70%;
+  left: 30%;
+  animation: float4 11s infinite ease-in-out;
+}
+
+/* Floating animation for skill bubbles */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Animations for each bubble */
+@keyframes float1 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(50%, 30%);
+  }
+  50% {
+    transform: translate(20%, 60%);
+  }
+  75% {
+    transform: translate(-20%, 30%);
+  }
+}
+
+@keyframes float2 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-30%, -40%);
+  }
+  50% {
+    transform: translate(-40%, 20%);
+  }
+  75% {
+    transform: translate(20%, -20%);
+  }
+}
+
+@keyframes float3 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-20%, 40%);
+  }
+  50% {
+    transform: translate(30%, 20%);
+  }
+  75% {
+    transform: translate(10%, -30%);
+  }
+}
+
+@keyframes float4 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(30%, -30%);
+  }
+  50% {
+    transform: translate(-20%, -40%);
+  }
+  75% {
+    transform: translate(-30%, 20%);
+  }
+}
+
+/* Offset each skill bubble's animation */
+.skill-bubble:nth-child(1) {
+  animation-delay: 0s;
+}
+.skill-bubble:nth-child(2) {
+  animation-delay: 1.5s;
+}
+.skill-bubble:nth-child(3) {
+  animation-delay: 3s;
+}
+.skill-bubble:nth-child(4) {
+  animation-delay: 4.5s;
 }
 
 /* Animations */
@@ -163,8 +331,178 @@
   }
 }
 
+@keyframes rise {
+  0% {
+    bottom: -100px;
+    transform: translateX(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(100px);
+    opacity: 0.8;
+  }
+  100% {
+    bottom: 100vh;
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+}
+
+/* Bubbles background */
+.bubbles {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -100px;
+  width: 40px;
+  height: 40px;
+  background: var(--accent-light);
+  border-radius: 50%;
+  opacity: 0.5;
+  animation: rise 10s infinite ease-in;
+  backdrop-filter: blur(2px);
+}
+
+[data-theme="light"] .bubble {
+  background: rgba(236, 240, 243, 0.4);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+[data-theme="dark"] .bubble {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.bubble:nth-child(1) {
+  left: 10%;
+  width: 40px;
+  height: 40px;
+  animation-duration: 8s;
+}
+.bubble:nth-child(2) {
+  left: 20%;
+  width: 80px;
+  height: 80px;
+  animation-duration: 10s;
+  animation-delay: 1s;
+}
+.bubble:nth-child(3) {
+  left: 35%;
+  width: 30px;
+  height: 30px;
+  animation-duration: 7s;
+  animation-delay: 2s;
+}
+.bubble:nth-child(4) {
+  left: 50%;
+  width: 70px;
+  height: 70px;
+  animation-duration: 11s;
+  animation-delay: 0s;
+}
+.bubble:nth-child(5) {
+  left: 65%;
+  width: 35px;
+  height: 35px;
+  animation-duration: 6s;
+  animation-delay: 1s;
+}
+.bubble:nth-child(6) {
+  left: 80%;
+  width: 55px;
+  height: 55px;
+  animation-duration: 8s;
+  animation-delay: 3s;
+}
+.bubble:nth-child(7) {
+  left: 90%;
+  width: 25px;
+  height: 25px;
+  animation-duration: 7s;
+  animation-delay: 2s;
+}
+.bubble:nth-child(8) {
+  left: 25%;
+  width: 55px;
+  height: 55px;
+  animation-duration: 9s;
+  animation-delay: 1s;
+}
+.bubble:nth-child(9) {
+  left: 45%;
+  width: 35px;
+  height: 35px;
+  animation-duration: 12s;
+  animation-delay: 4s;
+}
+.bubble:nth-child(10) {
+  left: 70%;
+  width: 30px;
+  height: 30px;
+  animation-duration: 6s;
+  animation-delay: 2s;
+}
+.bubble:nth-child(11) {
+  left: 15%;
+  width: 45px;
+  height: 45px;
+  animation-duration: 11s;
+  animation-delay: 3s;
+}
+.bubble:nth-child(12) {
+  left: 55%;
+  width: 40px;
+  height: 40px;
+  animation-duration: 9s;
+  animation-delay: 1s;
+}
+.bubble:nth-child(13) {
+  left: 85%;
+  width: 35px;
+  height: 35px;
+  animation-duration: 7s;
+  animation-delay: 2s;
+}
+.bubble:nth-child(14) {
+  left: 30%;
+  width: 50px;
+  height: 50px;
+  animation-duration: 10s;
+  animation-delay: 4s;
+}
+.bubble:nth-child(15) {
+  left: 75%;
+  width: 65px;
+  height: 65px;
+  animation-duration: 8s;
+  animation-delay: 3s;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+  .content-wrapper {
+    flex-direction: column;
+  }
+
+  .home-content,
+  .skills-container {
+    width: 100%;
+  }
+
+  .skills-container {
+    height: 300px;
+    border-left: none;
+    border-top: 1px solid rgba(128, 128, 128, 0.2);
+  }
+
   .intro h1 {
     font-size: 2.5rem;
   }
