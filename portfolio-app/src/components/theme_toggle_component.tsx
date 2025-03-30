@@ -64,7 +64,7 @@ const ThemeToggle: React.FC<ThemeToggleProps> = ({ isDark, onToggle }) => {
       onTouchStart={handleDragStart}
     >
       <div className={`theme-toggle-switch ${isDark ? "dark" : "light"}`}>
-        <span className="theme-icon">{isDark ? "🌙" : "🌞"}</span>
+        <span className="theme-icon">{isDark ? "🌙" : "🔆"}</span>
       </div>
     </div>
   );
