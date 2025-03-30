@@ -1,23 +1,64 @@
-.theme-toggle {
+.theme-toggle-wrapper {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  padding: 1rem;
-  font-size: 1.5rem;
-  border-radius: 50%;
-  border: none;
-  background: var(--card-bg-light);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
+  width: 30px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  cursor: grab;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
   z-index: 1000;
+  display: flex;
+  justify-content: center;
+  user-select: none;
+  -webkit-user-select: none; /* Safari support */
+  -moz-user-select: none; /* Firefox support */
+  -ms-user-select: none; /* IE/Edge support */
 }
 
-.theme-toggle:hover {
-  transform: scale(1.1);
+/* Add grabbing cursor when dragging */
+.theme-toggle-wrapper:active,
+.theme-toggle-wrapper.dragging {
+  cursor: grabbing;
 }
 
-[data-theme="dark"] .theme-toggle {
-  background: var(--card-bg-dark);
-  color: var(--text-dark);
+.theme-toggle-switch {
+  width: 25px;
+  height: 25px;
+  background: var(--bg-light);
+  border-radius: 50%; /* Changed to 50% for perfect circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  margin: 0 auto; /* Added to ensure horizontal centering */
+}
+
+.theme-toggle-switch.dark {
+  transform: translateY(30px);
+  background: var(--bg-dark);
+}
+
+.theme-icon {
+  font-size: 0.75rem;
+  line-height: 1;
+  pointer-events: none; /* Prevents mouse events on the icon */
+}
+
+.dragging .theme-toggle-switch {
+  transition: none;
+}
+
+[data-theme="light"] .theme-toggle-wrapper {
+  background: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), inset 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .theme-toggle-wrapper {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
 }
