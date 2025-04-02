@@ -1,8 +1,55 @@
+:root {
+  /* Light theme variables */
+  --bg-light: #ffffff;
+  --bg-2-light: #f0f4ff; /* Light background for sections */
+  --text-light: #2d3436;
+  --accent-light: #313bac; /* Changed to rich blue */
+  --card-bg-light: #f5f6fa;
+  --hover-light: #4c56c5; /* Lighter blue for hover */
+  --shadow-light: rgba(49, 59, 172, 0.1);
+
+  /* Dark theme variables */
+  --bg-dark: #2d3436;
+  --bg-2-dark: #353b48; /* Dark background for sections */
+  --text-dark: #dfe6e9;
+  --accent-dark: #4c56c5; /* Lighter blue for dark mode */
+  --card-bg-dark: #353b48;
+  --hover-dark: #313bac; /* Original blue for hover in dark mode */
+  --shadow-dark: rgba(49, 59, 172, 0.2);
+
+  /* Typography */
+  --font-primary: "Inter", -apple-system, BlinkMacSystemFont, system-ui,
+    sans-serif;
+}
+
+[data-theme="light"] {
+  --bg: var(--bg-light);
+  --bg-2: var(--bg-2-light);
+  --text: var(--text-light);
+  --accent: var(--accent-light);
+  --card-bg: var(--card-bg-light);
+  --hover: var(--hover-light);
+}
+
+[data-theme="dark"] {
+  --bg: var(--bg-dark);
+  --bg-2: var(--bg-2-dark);
+  --text: var(--text-dark);
+  --accent: var(--accent-dark);
+  --card-bg: var(--card-bg-dark);
+  --hover: var(--hover-dark);
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
   text-align: center;
+}
+
+.App {
+  margin-top: 70px; /* Adjust this value based on your navbar height */
 }
 
 .logo {
@@ -39,4 +86,39 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.main-content {
+  padding-top: 70px;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Base typography */
+body {
+  font-family: var(--font-primary);
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.011em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+h2,
+h3 {
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.3;
+}
+
+p {
+  font-weight: 400;
 }
