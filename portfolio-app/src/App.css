@@ -1,6 +1,7 @@
 :root {
   /* Light theme variables */
   --bg-light: #ffffff;
+  --bg-2-light: #f0f4ff; /* Light background for sections */
   --text-light: #2d3436;
   --accent-light: #313bac; /* Changed to rich blue */
   --card-bg-light: #f5f6fa;
@@ -9,6 +10,7 @@
 
   /* Dark theme variables */
   --bg-dark: #2d3436;
+  --bg-2-dark: #353b48; /* Dark background for sections */
   --text-dark: #dfe6e9;
   --accent-dark: #4c56c5; /* Lighter blue for dark mode */
   --card-bg-dark: #353b48;
@@ -22,6 +24,7 @@
 
 [data-theme="light"] {
   --bg: var(--bg-light);
+  --bg-2: var(--bg-2-light);
   --text: var(--text-light);
   --accent: var(--accent-light);
   --card-bg: var(--card-bg-light);
@@ -30,6 +33,7 @@
 
 [data-theme="dark"] {
   --bg: var(--bg-dark);
+  --bg-2: var(--bg-2-dark);
   --text: var(--text-dark);
   --accent: var(--accent-dark);
   --card-bg: var(--card-bg-dark);

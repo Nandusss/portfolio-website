@@ -1,66 +1,76 @@
 import React from "react";
 import "./about_section.css";
+import highlight1Image from "../assets/sections_assets/Engg-Excellence.png";
+import hightlight2Image from "../assets/sections_assets/ai-innovation.webp";
+import highlight3Image from "../assets/sections_assets/full-stack.webp";
+import highlight4Image from "../assets/sections_assets/problem-solving.webp";
 
-// Import technology logos
-import reactLogo from "../assets/react.svg";
-import tensorflowLogo from "../assets/Tensorflow_logo.svg";
-import nodejsLogo from "../assets/nodejs-horizontal.svg";
-
-interface Skill {
-  name: string;
-  logo: string;
+interface HighlightCard {
+  image: string;
+  heading: string;
+  subtext: string;
 }
 
-interface AboutContent {
-  name: string;
-  title: string;
-  description: string;
-  skills: Skill[];
-}
-
-const aboutContent: AboutContent = {
-  name: "Nandagopan Dilip",
-  title: "Full Stack Developer",
-  description:
-    "Passionate about creating web applications and solving complex problems",
-  skills: [
+const aboutContent = {
+  summary:
+    "Pushing the boundaries of ***full-stack development*** and ***AI***, crafting ***innovative solutions*** that drive impact.",
+  highlights: [
     {
-      name: "React",
-      logo: reactLogo,
+      image: highlight1Image,
+      heading: "Engineering Excellence",
+      subtext: "Building robust, scalable solutions",
     },
     {
-      name: "TensorFlow",
-      logo: tensorflowLogo,
+      image: hightlight2Image,
+      heading: "AI Innovation",
+      subtext: "Advancing ML and AI technologies",
     },
     {
-      name: "Node.js",
-      logo: nodejsLogo,
+      image: highlight3Image,
+      heading: "Full Stack",
+      subtext: "End-to-end development expertise",
     },
-    // Add more skills here
+    {
+      image: highlight4Image,
+      heading: "Problem Solving",
+      subtext: "Turning challenges into solutions",
+    },
   ],
 };
 
 const About: React.FC = () => {
+  // Function to format text with accents
+  const formatText = (text: string) => {
+    return text.split("***").map((part, index) =>
+      index % 2 === 0 ? (
+        part
+      ) : (
+        <span key={index} className="accent-text">
+          {part}
+        </span>
+      )
+    );
+  };
+
   return (
     <section id="about" className="about-section">
       <div className="about-content">
-        <h2>About Me</h2>
-        <div className="intro">
-          <h1>{aboutContent.name}</h1>
-          <h3>{aboutContent.title}</h3>
-          <p>{aboutContent.description}</p>
+        <div className="summary-section">
+          <div className="summary-text">{formatText(aboutContent.summary)}</div>
         </div>
 
-        <div className="skills">
-          <h3>My Skills</h3>
-          <div className="skills-grid">
-            {aboutContent.skills.map((skill, index) => (
-              <div key={index} className="skill-item">
-                <img src={skill.logo} alt={skill.name} />
-                <span>{skill.name}</span>
+        <div className="highlights-grid">
+          {aboutContent.highlights.map((highlight, index) => (
+            <div key={index} className="highlight-card">
+              <div className="image-container">
+                <img src={highlight.image} alt={highlight.heading} />
               </div>
-            ))}
-          </div>
+              <div className="card-content">
+                <h3>{highlight.heading}</h3>
+                <p>{highlight.subtext}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -5,6 +5,8 @@
   justify-content: center;
   padding: 0 2rem;
   transition: all 0.3s ease;
+  position: relative; /* Add this to contain bubbles */
+  overflow: hidden; /* Add this to prevent scrolling */
 }
 
 /* Light theme styles */
@@ -20,20 +22,6 @@
   -webkit-text-fill-color: transparent;
 }
 
-[data-theme="light"] .skill-item {
-  background-color: var(--card-bg-light);
-  box-shadow: 0 4px 6px var(--shadow-light);
-}
-
-[data-theme="light"] .cta-button {
-  background: var(--accent-light);
-  color: white;
-}
-
-[data-theme="light"] .cta-button:hover {
-  background: var(--hover-light);
-}
-
 /* Dark theme styles */
 [data-theme="dark"] .home-section {
   background-color: var(--bg-dark);
@@ -45,20 +33,6 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-[data-theme="dark"] .skill-item {
-  background-color: var(--card-bg-dark);
-  box-shadow: 0 4px 6px var(--shadow-dark);
-}
-
-[data-theme="dark"] .cta-button {
-  background: var(--accent-dark);
-  color: var(--bg-dark);
-}
-
-[data-theme="dark"] .cta-button:hover {
-  background: var(--hover-dark);
 }
 
 /* Rest of the styles */
@@ -125,32 +99,6 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 2rem;
   padding: 2rem;
-}
-
-.skill-item {
-  padding: 2rem;
-  border-radius: 15px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.skill-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-.skill-item img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-}
-
-.skill-item span {
-  font-size: 1.1rem;
-  font-weight: 500;
 }
 
 /* Add new skill bubble styles */
@@ -333,7 +281,7 @@
 
 @keyframes rise {
   0% {
-    bottom: -100px;
+    bottom: -50px; /* Reduced from -100px to minimize gap */
     transform: translateX(0);
     opacity: 0.5;
   }
@@ -357,11 +305,12 @@
   overflow: hidden;
   top: 0;
   left: 0;
+  bottom: 0; /* Add this to ensure coverage */
 }
 
 .bubble {
   position: absolute;
-  bottom: -100px;
+  bottom: -100px; /* Keep this negative value for animation */
   width: 40px;
   height: 40px;
   background: var(--accent-light);
@@ -515,9 +464,5 @@
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 1rem;
     padding: 1rem;
-  }
-
-  .skill-item {
-    padding: 1.5rem;
   }
 }
