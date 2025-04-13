@@ -1,7 +1,7 @@
 :root {
   /* Light theme variables */
   --bg-light: #ffffff;
-  --bg-2-light: #f0f4ff; /* Light background for sections */
+  --bg-2-light: #f4f7f9; /* Light background for sections */
   --text-light: #2d3436;
   --accent-light: #313bac; /* Changed to rich blue */
   --card-bg-light: #f5f6fa;
@@ -10,10 +10,10 @@
 
   /* Dark theme variables */
   --bg-dark: #2d3436;
-  --bg-2-dark: #353b48; /* Dark background for sections */
+  --bg-2-dark: #333c3e; /* Dark background for sections */
   --text-dark: #dfe6e9;
   --accent-dark: #4c56c5; /* Lighter blue for dark mode */
-  --card-bg-dark: #353b48;
+  --card-bg-dark: #3d4453;
   --hover-dark: #313bac; /* Original blue for hover in dark mode */
   --shadow-dark: rgba(49, 59, 172, 0.2);
 
