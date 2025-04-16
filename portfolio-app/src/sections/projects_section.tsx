@@ -38,7 +38,7 @@ const projects: Project[] = [
   {
     title: "Portfolio Website",
     description: "Personal portfolio website built with React and TypeScript",
-    image: placeholderImage,
+    image: portfolioImage,
     category: "Web Development",
     githubLink: "https://github.com/Nanduss/portfolio-website",
     demoLink: "https://portfolio.com",
