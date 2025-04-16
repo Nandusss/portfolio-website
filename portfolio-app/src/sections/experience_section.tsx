@@ -115,7 +115,7 @@ const Experience: React.FC = () => {
   };
 
   return (
-    <section className="experience-section">
+    <section id="experience" className="experience-section">
       <div className="content-wrapper">
         <div className="skills-container">
           <h2>Skills</h2>
