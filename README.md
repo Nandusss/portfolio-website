@@ -2,4 +2,5 @@
 
 ## Demo
 
-![Home Page Demo](./public/screenshots/home.mp4)
+![Home Page Demo](./portfolio-app/public/screenshots/home.mp4)
+![Home Page Demo](./portfolio-app/public/screenshots/home.gif)
