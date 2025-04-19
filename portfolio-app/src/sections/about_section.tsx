@@ -1,9 +1,9 @@
 import React from "react";
 import "./about_section.css";
-import highlight1Image from "../assets/sections_assets/Engg-Excellence.png";
-import hightlight2Image from "../assets/sections_assets/ai-innovation.webp";
-import highlight3Image from "../assets/sections_assets/full-stack.webp";
-import highlight4Image from "../assets/sections_assets/problem-solving.webp";
+import highlight1Image from "../assets/sections_assets/about_section_assets/Engg-Excellence.png";
+import hightlight2Image from "../assets/sections_assets/about_section_assets/ai-innovation.webp";
+import highlight3Image from "../assets/sections_assets/about_section_assets/full-stack.webp";
+import highlight4Image from "../assets/sections_assets/about_section_assets/problem-solving.webp";
 
 interface HighlightCard {
   image: string;

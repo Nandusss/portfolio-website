@@ -4,7 +4,9 @@
   --bg-2-light: #f4f7f9; /* Light background for sections */
   --text-light: #2d3436;
   --accent-light: #313bac; /* Changed to rich blue */
+  --accent-light-2: #000000;
   --card-bg-light: #f5f6fa;
+  --card-bg-light-2: #ffffff; /* Lighter background for cards */
   --hover-light: #4c56c5; /* Lighter blue for hover */
   --shadow-light: rgba(49, 59, 172, 0.1);
 
@@ -13,7 +15,9 @@
   --bg-2-dark: #333c3e; /* Dark background for sections */
   --text-dark: #dfe6e9;
   --accent-dark: #4c56c5; /* Lighter blue for dark mode */
+  --accent-dark-2: #ffffff; /* White for dark mode */
   --card-bg-dark: #3d4453;
+  --card-bg-dark-2: #2d3436; /* Darker background for cards */
   --hover-dark: #313bac; /* Original blue for hover in dark mode */
   --shadow-dark: rgba(49, 59, 172, 0.2);
 
@@ -27,7 +31,9 @@
   --bg-2: var(--bg-2-light);
   --text: var(--text-light);
   --accent: var(--accent-light);
+  --accent-2: var(--accent-light-2);
   --card-bg: var(--card-bg-light);
+  --card-bg-2: var(--card-bg-light-2);
   --hover: var(--hover-light);
 }
 
@@ -36,7 +42,9 @@
   --bg-2: var(--bg-2-dark);
   --text: var(--text-dark);
   --accent: var(--accent-dark);
+  --accent-2: var(--accent-dark-2);
   --card-bg: var(--card-bg-dark);
+  --card-bg-2: var(--card-bg-dark-2);
   --hover: var(--hover-dark);
 }
 
