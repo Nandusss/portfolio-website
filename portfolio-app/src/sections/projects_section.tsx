@@ -5,11 +5,12 @@ import virtualTryOnImage from "../assets/sections_assets/projects_section_assets
 import botZeroXImage from "../assets/sections_assets/projects_section_assets/botZeroX.png";
 import portfolioImage from "../assets/sections_assets/projects_section_assets/portfolioWebsite.png";
 
+// Update the Interface to support multiple categories
 interface Project {
   title: string;
   description: string;
   image: string;
-  category: string;
+  category: string[]; // Changed from string to string[]
   githubLink: string;
   demoLink?: string;
   technologies: string[];
@@ -22,7 +23,7 @@ const projects: Project[] = [
       "Convolutional Neural Network model for German Traffic Sign Recognition Benchmark (GTSRB) dataset",
     image:
       "https://raw.githubusercontent.com/Nandusss/GTSRB-Traffic-SIgn-CNN/refs/heads/master/images/Screenshot2.png",
-    category: "Neural Networks",
+    category: ["Neural Networks"],
     githubLink:
       "https://github.com/Nandusss/GTSRB-Traffic-SIgn-CNN?tab=readme-ov-file#gtsrb-traffic-sign-cnn",
     technologies: ["Python", "TensorFlow", "OpenCV"],
@@ -31,7 +32,7 @@ const projects: Project[] = [
     title: "Virtual Cloth Try-on",
     description: "Personal portfolio website built with React and TypeScript",
     image: virtualTryOnImage,
-    category: "Deep Learning",
+    category: ["Deep Learning"],
     githubLink: "https://github.com/orgs/AI-capstone-project/repositories",
     technologies: ["PyTorch", "Tensorflow", "React", "Docker"],
   },
@@ -39,7 +40,7 @@ const projects: Project[] = [
     title: "Portfolio Website",
     description: "Personal portfolio website built with React and TypeScript",
     image: portfolioImage,
-    category: "Web Development",
+    category: ["Web Development"],
     githubLink: "https://github.com/Nanduss/portfolio-website",
     demoLink: "https://portfolio.com",
     technologies: ["React", "TypeScript", "NodeJS"],
@@ -49,7 +50,7 @@ const projects: Project[] = [
     description:
       "Chatbot for Centennial College services using NLTK and AWS SDK, capable of answering questions and providing information about Centennial College's programs and services.",
     image: placeholderImage,
-    category: "Natural Language Processing",
+    category: ["Natural Language Processing", "Web Development"],
     githubLink: "https://github.com/Nandusss/CentBotAWS",
     technologies: ["NLTK", "AWS", "PIPENV"],
   },
@@ -57,24 +58,30 @@ const projects: Project[] = [
     title: "Bot Zero X",
     description: "Simple chatbot for discord using C# and .Net",
     image: botZeroXImage,
-    category: "Natural Language Processing",
+    category: ["Natural Language Processing"],
     githubLink: "https://github.com/Nandusss/bot-0x",
     technologies: [".Net", "C#", "Discord.Net"],
   },
 ];
 
 const Projects: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState<string>("All");
   const [showAll, setShowAll] = useState(false);
 
+  // Update the categories memo
   const categories = useMemo(() => {
-    const cats = projects.map((p) => p.category);
-    return ["All", ...new Set(cats)];
+    const cats = new Set(projects.flatMap((p) => p.category));
+    return ["All", ...cats];
   }, []);
 
+  const toggleCategory = (category: string) => {
+    setActiveCategory(category);
+  };
+
+  // Simplify filter logic while keeping support for multiple categories per project
   const filteredProjects = useMemo(() => {
     if (activeCategory === "All") return projects;
-    return projects.filter((p) => p.category === activeCategory);
+    return projects.filter((p) => p.category.includes(activeCategory));
   }, [activeCategory]);
 
   const visibleProjects = showAll
@@ -95,7 +102,7 @@ const Projects: React.FC = () => {
               className={`category-btn ${
                 activeCategory === category ? "active" : ""
               }`}
-              onClick={() => setActiveCategory(category)}
+              onClick={() => toggleCategory(category)}
             >
               {category}
             </button>
