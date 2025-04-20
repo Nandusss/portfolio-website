@@ -5,6 +5,7 @@ import Home from "./sections/home_section";
 import About from "./sections/about_section";
 import Experience from "./sections/experience_section";
 import Projects from "./sections/projects_section";
+import Contact from "./sections/contact_section";
 import ThemeToggle from "./components/theme_toggle_component";
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
         <About />
         <Experience />
         <Projects />
+        <Contact />
         <ThemeToggle isDark={isDark} onToggle={toggleTheme} />
       </main>
     </>
