@@ -42,7 +42,7 @@ const projects: Project[] = [
     image: portfolioImage,
     category: ["Web Development"],
     githubLink: "https://github.com/Nanduss/portfolio-website",
-    demoLink: "https://portfolio.com",
+    demoLink: "https://nandusss.github.io/portfolio-website/",
     technologies: ["React", "TypeScript", "NodeJS"],
   },
   {
