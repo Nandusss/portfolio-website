@@ -5,12 +5,6 @@ import hightlight2Image from "../assets/sections_assets/about_section_assets/ai-
 import highlight3Image from "../assets/sections_assets/about_section_assets/full-stack.webp";
 import highlight4Image from "../assets/sections_assets/about_section_assets/problem-solving.webp";
 
-interface HighlightCard {
-  image: string;
-  heading: string;
-  subtext: string;
-}
-
 const aboutContent = {
   summary:
     "Pushing the boundaries of ***full-stack development*** and ***AI***, crafting ***innovative solutions*** that drive impact.",
